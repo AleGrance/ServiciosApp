@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reserva de turno</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Nombre:</ion-label>
+      <ion-input [clearInput]="true" placeholder="Escriba el nombre"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Apellido:</ion-label>
+      <ion-input [clearOnEdit]="true" placeholder="Escriba el apellido"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Email:</ion-label>
+      <ion-input type="text" placeholder="Escriba el email"></ion-input>
+    </ion-item>
+
+    <ion-item counter="true">
+      <ion-label position="floating">Tel/Cel:</ion-label>
+      <ion-input maxlength="20"></ion-input>
+    </ion-item>
+    
+    <ion-item id="custom-item" counter="true">
+      <ion-label position="stacked">Fecha:</ion-label>
+      <ion-input type="date"></ion-input>
+    </ion-item>
+
+    <ion-button>Enviar</ion-button>
+  </ion-list>
+</ion-content>
