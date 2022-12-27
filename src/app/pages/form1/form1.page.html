@@ -20,18 +20,31 @@
     </ion-item>
   
     <ion-item>
-      <ion-label position="stacked">Email:</ion-label>
-      <ion-input type="text" placeholder="Escriba el email"></ion-input>
+      <ion-label position="stacked">Sanatorio:</ion-label>
+      
+          <ion-select interface="popover" id="sanatorio" placeholder="Seleccionar Sanatorio">
+            <ion-select-option value="Migone">Migone</ion-select-option>
+            <ion-select-option value="Amsa">Amsa</ion-select-option>
+            <ion-select-option value="San Sebastian">San Sebastian</ion-select-option>
+            <ion-select-option value="Britanico">Sanatorio Britanico</ion-select-option>
+            <ion-select-option value="Santa Julia">Santa Julia</ion-select-option>
+            <ion-select-option value="San Lucas">San Lucas</ion-select-option>
+          </ion-select>
+       
     </ion-item>
 
     <ion-item counter="true">
       <ion-label position="floating">Tel/Cel:</ion-label>
-      <ion-input type="number" maxlength="20"></ion-input>
+      <ion-input type="number" id="nro_cel" maxlength="20"></ion-input>
     </ion-item>
     
     <ion-item id="custom-item" counter="true">
       <ion-label position="stacked">Fecha:</ion-label>
       <ion-input type="date" id="fecha"></ion-input>
+    </ion-item>
+    <ion-item id="custom-item" counter="true">
+      <ion-label position="stacked">Hora:</ion-label>
+      <ion-input type="time" id="hora"></ion-input>
     </ion-item>
 
     <ion-button (click)="enviar()">Enviar</ion-button>
