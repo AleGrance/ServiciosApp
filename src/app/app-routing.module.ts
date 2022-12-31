@@ -3,40 +3,53 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'login',
+    loadChildren: () =>
+      import('./pages/login/login.module').then((m) => m.LoginPageModule),
+  },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./pages/home/home.module').then((m) => m.HomePageModule),
   },
   {
     path: 'pageone',
-    loadChildren: () => import('./pages/pageone/pageone.module').then( m => m.PageonePageModule)
+    loadChildren: () =>
+      import('./pages/pageone/pageone.module').then((m) => m.PageonePageModule),
   },
   {
     path: 'pagetwo',
-    loadChildren: () => import('./pages/pagetwo/pagetwo.module').then( m => m.PagetwoPageModule)
+    loadChildren: () =>
+      import('./pages/pagetwo/pagetwo.module').then((m) => m.PagetwoPageModule),
   },
   {
     path: 'pagethree',
-    loadChildren: () => import('./pages/pagethree/pagethree.module').then( m => m.PagethreePageModule)
+    loadChildren: () =>
+      import('./pages/pagethree/pagethree.module').then(
+        (m) => m.PagethreePageModule
+      ),
   },
   {
     path: 'form1',
-    loadChildren: () => import('./pages/form1/form1.module').then( m => m.Form1PageModule)
+    loadChildren: () =>
+      import('./pages/form1/form1.module').then((m) => m.Form1PageModule),
   },
   {
     path: 'form2',
-    loadChildren: () => import('./pages/form2/form2.module').then( m => m.Form2PageModule)
+    loadChildren: () =>
+      import('./pages/form2/form2.module').then((m) => m.Form2PageModule),
   },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
