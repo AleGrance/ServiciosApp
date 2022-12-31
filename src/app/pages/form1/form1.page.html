@@ -49,4 +49,65 @@
 
     <ion-button (click)="enviar()">Enviar</ion-button>
   </ion-list>
+
+  <!-- Modal -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Resumen</ion-title>
+    </ion-toolbar>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Total a pagar</ion-card-title>
+        <ion-card-subtitle>Consulta seleccionada</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Producto</ion-col>
+            <ion-col></ion-col>
+            <ion-col>100000Gs.</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Producto</ion-col>
+            <ion-col></ion-col>
+            <ion-col>25000Gs.</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-item-divider></ion-item-divider>
+          </ion-row>
+          <ion-row>
+            <ion-col>Total</ion-col>
+            <ion-col></ion-col>
+            <ion-col>125000Gs.</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-button id="open-modal" expand="block">Pagar</ion-button>
+    <p>Mensaje</p>
+    <ion-modal trigger="open-modal">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button (click)="cancel()">Cancelar</ion-button>
+            </ion-buttons>
+            <ion-title>Solicitar pago</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="confirm()" [strong]="true">Confirmar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <ion-item>
+            <ion-label position="stacked">Ingrese su nombre</ion-label>
+            <ion-input type="text" placeholder="Tu nombre" [(ngModel)]="name"></ion-input>
+          </ion-item>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-content>
 </ion-content>

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild  } from '@angular/core';
 import { Location } from "@angular/common";
 import { ApiService } from 'src/app/services/api.service';
 import { AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IonModal } from '@ionic/angular';
 
 @Component({
   selector: 'app-form1',
@@ -10,6 +11,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./form1.page.scss'],
 })
 export class Form1Page implements OnInit {
+  @ViewChild(IonModal) modal: IonModal | any;
+  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
+  name: string | any;
 
   constructor(private location: Location, public api: ApiService, private alertController: AlertController, private router: Router) { }
 
@@ -83,5 +87,23 @@ export class Form1Page implements OnInit {
   goHome() {
     this.router.navigate(['home']);
   }
+
+  // Modal
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+    console.log("se cancela");
+  }
+
+  confirm() {
+    this.modal.dismiss(this.name, 'confirm');
+    console.log("se confirma el envio de los datos para pagar");
+  }
+
+  // onWillDismiss(event: Event) {
+  //   const ev = event as CustomEvent<OverlayEventDetail<string>>;
+  //   if (ev.detail.role === 'confirm') {
+  //     this.message = `Hello, ${ev.detail.data}!`;
+  //   }
+  // }
 
 }
